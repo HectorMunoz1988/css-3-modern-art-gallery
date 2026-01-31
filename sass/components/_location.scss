@@ -1,0 +1,60 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.location {
+  background-color: v.$black;
+  padding: 48px 16px 56px 16px;
+  @include m.breakpoint(tablet) {
+    padding: 88px 40px;
+  }
+
+  &__content {
+    @include m.breakpoint(tablet) {
+      display: flex;
+      gap: 88px;
+      max-width: 689px;
+      margin: 0 auto;
+    }
+    @include m.breakpoint(desktop) {
+      max-width: 1110px;
+      margin: 0 auto;
+      gap: 320px;
+    }
+
+    a {
+    text-decoration: none;
+
+      h2 {
+        color: v.$white;
+        font-weight: 900; // 200, 300, normal(400), 500, 600, bold(700), 800, 900
+        font-family: v.$primary-font;
+        font-size: 50px;
+        line-height: 45px;
+        &:hover {
+          color: v.$orange;
+        }
+      }
+    }
+
+    h3 {
+      margin-top: 48px;
+      color: v.$orange;
+      font-weight: 900; // 200, 300, normal(400), 500, 600, bold(700), 800, 900
+      font-family: v.$primary-font;
+      font-size: 32px;
+      line-height: 32px;
+      @include m.breakpoint(tablet) {
+        margin-top: 0px;
+      }
+    }
+
+    p {
+      margin-top: 20px;
+      color: v.$white;
+      font-weight: 400; // 200, 300, normal(400), 500, 600, bold(700), 800, 900
+      font-family: v.$secundary-font;
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+}

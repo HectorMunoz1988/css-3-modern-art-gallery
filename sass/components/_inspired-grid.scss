@@ -1,0 +1,125 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.inspired-grid {
+    margin-top: 32px;
+
+    @include m.breakpoint(tablet) {
+        margin: 11px auto 0px auto;
+        display: flex;
+        gap: 11px;
+        max-width: 689px;
+
+    }
+    @include m.breakpoint(desktop) {
+        margin: 30px auto 0px auto;
+        gap: 30px;
+        max-width: 1110px;
+    }
+
+    .grid__first-img-mobile {
+        @include m.breakpoint(tablet) {
+            display: none;
+        }
+    }
+
+    .grid__first-img-tablet {
+        display: none;
+
+        @include m.breakpoint(tablet) {
+            display: block;
+            margin: 0px;
+        }
+        @include m.breakpoint(desktop) {
+            display: none;
+        }
+    }
+
+    .grid__first-img-desktop {
+        display: none;
+
+        @include m.breakpoint(tablet) {
+            display: none;
+        }
+        @include m.breakpoint(desktop) {
+            display: block;
+        }
+    }
+
+    .grid__second-img-mobile {
+        margin-top: 16px;
+        @include m.breakpoint(tablet) {
+            display: none;
+        }
+    }
+
+    .grid__second-img-tablet {
+        display: none;
+
+        @include m.breakpoint(tablet) {
+            display: block;
+        }
+        @include m.breakpoint(desktop) {
+            display: none;
+        }
+    }
+
+    .grid__second-img-desktop {
+        display: none;
+
+        @include m.breakpoint(tablet) {
+            display: none;
+        }
+        @include m.breakpoint(desktop) {
+            display: block;
+        }
+    }
+
+    .grid__text {
+        margin: 16px auto 0px auto;
+        padding: 48px 24px;
+        background-color: v.$black;
+        max-width: 343px;
+
+        @include m.breakpoint(tablet) {
+            width: 280px;
+            height: 396px;
+            padding: 85px 28px;
+        }
+
+        @include m.breakpoint(desktop) {
+            margin-top: 30px;
+            width: 445px;
+            max-width: 445px;
+            height: 377px;
+            padding: 65px 48px;
+        }
+
+        h2 {
+            font-weight: 900; // 200, 300, normal(400), 500, 600, bold(700), 800, 900
+            font-family: v.$primary-font;
+            font-size: 50px;
+            line-height: 45px;
+            color: v.$white;
+
+            @include m.breakpoint(desktop) {
+                font-size: 60px;
+                line-height: 60px;
+            }
+        }
+
+        p {
+            margin-top: 24px;
+            font-weight: 400; // 200, 300, normal(400), 500, 600, bold(700), 800, 900
+            font-size: 18px;
+            line-height: 28px;
+            color: v.$white;
+
+            @include m.breakpoint(desktop) {
+                margin-top: 32px;
+                font-size: 22px;
+                line-height: 32px;
+            }
+        }
+    }
+}

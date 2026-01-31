@@ -1,0 +1,83 @@
+
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.footer-location {
+    background-color: v.$orange;
+
+    .footer__flex {
+        padding: 48px 16px;
+
+        @include m.breakpoint(tablet) {
+            max-width: 689px;
+            margin: 0 auto;
+            padding: 56px 16px;
+
+            display: flex;
+            align-items: flex-start; // stretch(por defecto) | flex-start | flex-end | center | baseline
+        }
+        @include m.breakpoint(desktop) {
+            max-width: 1110px;
+            padding: 80px 16px;
+        }
+
+        h3 {
+            color: v.$black;
+            svg {
+                width: 110px;
+                height: auto;
+                @include m.breakpoint(desktop) {
+                    width: 160px;
+                }
+                &:hover {
+                    color: v.$white;
+                }
+            }
+
+            @include m.breakpoint(tablet) {
+                margin-right: 65px;
+            }
+            @include m.breakpoint(desktop) {
+                margin-right: 140px;
+            }
+        }
+
+        p {
+            margin-top: 38px;
+            font-weight: 400; // 200, 300, normal(400), 500, 600, bold(700), 800, 900
+            font-size: 16px;
+            line-height: 26px;
+            
+            @include m.breakpoint(tablet) {
+                margin-right: 132px;
+                margin-top: 0px;
+            }
+            @include m.breakpoint(desktop) {
+                margin-right: 280px;
+                font-size: 18px;
+                line-height: 28px;
+            }
+        }
+
+        .footer__nav {
+            margin-top: 38px;
+            display: flex;
+            align-items: center; // stretch(por defecto) | flex-start | flex-end | center | baseline
+            gap: 20px;
+
+            @include m.breakpoint(tablet) {
+                margin-top: 0px;
+            }
+
+            .footer__icon {
+                color: v.$black;
+                width: 24px;
+                height: 24px;
+
+                &:hover {
+                    color: v.$white;
+                }
+            }
+        }
+    }
+}

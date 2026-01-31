@@ -1,0 +1,113 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.hero {
+    padding-top: 272px;
+    @include m.breakpoint(tablet) {
+        padding-top: 145px;
+        max-width: 417px;
+        margin-left: auto;
+        margin-right: 40px;
+    }
+    @include m.breakpoint(desktop) {
+        max-width: 1110px;
+        margin-right: auto;
+    }
+
+    &__content {
+        @include m.breakpoint(desktop) {
+            display: flex;
+            gap: 246;
+        }
+    }
+
+    // primera imagen
+    &::before {
+        content: "";
+        display: block;
+
+        width: 100%;
+        height: 240px;
+        background-image: url('/img/first-img-mobile.jpg');
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @include m.breakpoint(tablet) {
+            width: 437px;
+            height: 700px;
+            background-image: url('/img/first-img-tablet.jpg');
+            position: absolute;
+            left: 218px;
+            z-index: -1;
+        }
+        @include m.breakpoint(desktop) {
+            width: 540px;
+            height: 800px;
+            background-image: url('/img/first-img-desktop.jpg');
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    // fondo negro a la izda de la imagen
+    &::after {
+        @include m.breakpoint(desktop) {
+            content: ""; // → | ✓ | ✔ | ★ | • | › | » | ✕  | ✦ | ⚠️ | 🔥 | ⭐ | 📌 | ❗ | 🔒 | 🔓 | 🔔 | 🛠️ | 📝 | 📎 | 📊 | Texto
+            display: block; // block | inline | inline-block | flex | grid | none | inline-flex | inline-grid | table | etc
+            width: 50%; // 200px | 10em | 5rem | 75%
+            height: 800px;
+            background-color: v.$black;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: -2;
+            }
+    }
+
+    &__title {
+        width: 343px;
+        height: auto;
+        margin: 0 auto 0 16px;
+        @include m.breakpoint(tablet) {
+            width: 339px;
+        }  
+        @include m.breakpoint(desktop) {
+            color: white;
+            width: 500px;
+        }  
+    }
+
+    &__right {
+        .hero__text {
+            margin-top: 32px;
+            font-weight: 400; // 200, 300, normal(400), 500, 600, bold(700), 800, 900
+            font-family: v.$secundary-font;
+            font-size: 18px;
+            line-height: 28px;
+            @include m.breakpoint(tablet) {
+                margin-top: 48px;
+            }
+            @include m.breakpoint(desktop) {
+                margin-top: 0px;
+                max-width: 350px;
+                font-size: 22px;
+                line-height: 32px;
+            }  
+        }
+
+        .btn-primary {
+            margin-top: 32px;
+            @include m.breakpoint(tablet) {
+                margin-top: 48px;
+            }
+            @include m.breakpoint(desktop) {
+                margin-top: 64px;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,80 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.btn-primary {
+  @include m.button();
+  position: relative;
+
+  // bloque
+  &::before {
+    content: ""; // → | ✓ | ✔ | ★ | • | › | » | ✕  | ✦ | ⚠️ | 🔥 | ⭐ | 📌 | ❗ | 🔒 | 🔓 | 🔔 | 🛠️ | 📝 | 📎 | 📊 | Texto
+    display: block; // block | inline | inline-block | flex | grid | none | inline-flex | inline-grid | table | etc
+    width: 56px; // 200px | 10em | 5rem | 75%
+    height: 72px;
+    background-color: v.$orange;
+    position: absolute;
+    top: 0px;
+    left: 210px;
+  }
+
+  &:hover::before {
+    background-color: v.$black;
+  }
+
+  // arrow
+  &::after {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    left: 227px;
+    transform: translateY(-50%);
+    background-image: url('/img/flecha-btn.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+}
+
+.btn-secundary {
+  @include m.button();
+  position: relative;
+  background-color: v.$black;
+  padding-left: 82px;
+
+  // bloque
+  &::before {
+    content: ""; // → | ✓ | ✔ | ★ | • | › | » | ✕  | ✦ | ⚠️ | 🔥 | ⭐ | 📌 | ❗ | 🔒 | 🔓 | 🔔 | 🛠️ | 📝 | 📎 | 📊 | Texto
+    display: block; // block | inline | inline-block | flex | grid | none | inline-flex | inline-grid | table | etc
+    width: 56px; // 200px | 10em | 5rem | 75%
+    height: 72px;
+    background-color: v.$orange;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
+  &:hover::before {
+    background-color: v.$black;
+  }
+
+  // arrow
+  &::after {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 34%;
+    left: 16px;
+    transform: translateY(-50%);
+    background-image: url('/img/flecha-btn.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transform: rotate(180deg);
+  }
+}
+

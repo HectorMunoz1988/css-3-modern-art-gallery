@@ -1,0 +1,87 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.intro {
+    margin-top: 120px;
+    @include m.breakpoint(tablet) {
+        margin: 265px auto 0px auto;
+        max-width: 689px;
+        display: flex;
+        flex-direction: row-reverse; // row(por defecto) | row-reverse | column | column-reverse
+        gap: 68px;
+
+    }
+    @include m.breakpoint(desktop) {
+        margin: 494px auto 0px auto;
+        max-width: 1110px;
+        gap: 125px;
+    }
+
+    &__img-mobile {
+        @include m.breakpoint(tablet) {
+            display: none;
+        }
+    }
+
+    &__img-tablet {
+        display: none;
+
+        @include m.breakpoint(tablet) {
+            display: block;
+        }
+        @include m.breakpoint(desktop) {
+            display: none;
+        }
+    }
+
+    &__img-desktop {
+        display: none;
+
+        @include m.breakpoint(tablet) {
+            display: none;
+        }
+        @include m.breakpoint(desktop) {
+            display: block;
+        }
+    }
+
+    &__text {
+        margin: 25px auto 0px auto;
+        max-width: 343px;
+
+        @include m.breakpoint(tablet) {
+            margin-top: 36px;
+            max-width: 689px;
+        }
+        @include m.breakpoint(desktop) {
+            margin-top: 60px;
+            max-width: 1110px;
+        }
+
+        h2 {
+            font-weight: 900; // 200, 300, normal(400), 500, 600, bold(700), 800, 900
+            font-family: v.$primary-font;
+            font-size: 50px;
+            line-height: 45px;
+            @include m.breakpoint(desktop) {
+                font-size: 60px;
+                line-height: 60px;
+            }
+        }
+
+        p {
+            margin-top: 21px;
+            font-weight: 400; // 200, 300, normal(400), 500, 600, bold(700), 800, 900
+            font-size: 18px;
+            line-height: 28px;
+            @include m.breakpoint(tablet) {
+                margin-top: 24px;
+            }
+            @include m.breakpoint(desktop) {
+                margin-top: 32px;
+                font-size: 22px;
+                line-height: 32px;
+            }
+        }
+    }
+}
